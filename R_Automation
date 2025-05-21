@@ -1,4 +1,5 @@
 #R Code for automation of your OTP2 instance. Please insert your own input coordinates path (file format should be a csv file with two columns (no titles) the first one containing longitudes and the second one containing latitudes))
+#Please cite the us and the opentripplanner package if used in a publication. Thank you!
 
 library(opentripplanner)
 library(lubridate)
