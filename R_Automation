@@ -1,0 +1,23 @@
+#R Code for automation of your OTP2 instance. Please insert your own input coordinates path (file format should be a csv file with two columns (no titles) the first one containing longitudes and the second one containing latitudes))
+
+library(opentripplanner)
+library(lubridate)
+library(data.table)
+library(sf)
+start.time <- Sys.time()
+otpcon <- otp_connect(port = 8080)
+specific_datetime <- ymd_hms("2024-10-28 08:00:00", tz = "America/New_York")
+
+#Replace with your csv file input path
+dt <- fread("[INPUT_COORDINATES_PATH.csv")
+dt_matrix <- as.matrix(dt)
+
+#Replace with your desired destination coordinates. ncores may be adjusted per your computer specifications to improve performance.
+destination_long = 00.000
+destination_lat = 00.000
+route <- otp_plan(otpcon,
+                  fromPlace = dt_matrix,
+                  toPlace = c(destination_long,destination_lat), ncores = 1, mode = "TRANSIT", date_time=specific_datetime,  arriveBy = TRUE, numItineraries = 1)
+
+#Replace with your desired output path (should end in .csv)
+st_write(route, "Output_path")
