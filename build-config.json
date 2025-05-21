@@ -1,0 +1,7 @@
+// build-config.json
+{
+  "transitModelTimeZone" : "America/New_York",
+  "osmDefaults" : {
+    "timeZone" : "America/New_York"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "routingDefaults": {
+    "transferSlack": 180,
+    "itineraryFilters": {
+      "nonTransitGeneralizedCostLimit": "0 + 1x"
+    }
+  }
+}
